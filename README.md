@@ -1,7 +1,19 @@
 # gamehax.h
 
-gamehax.h is a one file (for now), easy to import "library" for C++ that allows game hackers to mess with memory and stuff alot easier.
+### gamehax.h is a one file, easy to import library / function pack for C++ that allows game hackers to mess with memory and stuff alot easier.
 
-This is especially good for beginners who don't know how to use WriteProcessMemory or ReadProcessMemory.
+### This is especially good for beginners who don't know how to use WriteProcessMemory or ReadProcessMemory. (this functions pack adds a readMem (1 arg) function and a writeMem (2 args) function.)
 
-It also contains functions like "print", which means you don't have to constantly go "std::cout << "Insert text here" << std::endl;" but instead go "print("hello")" like in lua.
+### It also contains ease-of-access like functions like 'print' and 'wait' that are purely there to make things easier for beginners.
+
+## Current functions list:
+
+### print("Text here")
+
+### wait(seconds)
+
+### hookToProcess("Window name") -- This function must be used before using most of the commands.
+
+### writeMem(address, value)
+
+### readMem(address)
