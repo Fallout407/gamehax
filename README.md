@@ -12,8 +12,8 @@
 
 ### wait(seconds)
 
-### hookToProcess("Window name") -- This function must be used before using most of the commands.
+### hookToProcess("Window name") -- This function also selects what program to memory edit.
 
 ### writeMem(address, value)
 
-### readMem(address)
+### readMem(address) -- Outputs reading to a variable called 'readOutput'.
