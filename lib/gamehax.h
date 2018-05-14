@@ -14,6 +14,14 @@ void print(std::string text)
 	std::cout << text << std::endl;
 }
 
+// wait function (better Sleep function [from Windows.h], counts in seconds instead of milliseconds)
+
+void wait(int seconds)
+{
+	int time = seconds * 1000;
+	Sleep(time);
+}
+
 // This is the hacking set of functions. Most functions here can only be used after using the hookToProcess function.
 
 // hookToProcess function (hooks the program to a process, allowing you to hack. Creates handle with the name 'handle')
