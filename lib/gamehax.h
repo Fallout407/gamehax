@@ -56,5 +56,7 @@ void writeMem(DWORD address, int value)
 
 void readMem(DWORD address)
 {
-	ReadProcessMemory(handle, (PBYTE*)address, 0, sizeof(0), 0);
+	// This function will output the reading to the variable "readVar".
+	int readOutput = 0;
+	ReadProcessMemory(handle, (PBYTE*)address, &readOutput, sizeof(readOutput), 0);
 };
