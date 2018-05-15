@@ -1,6 +1,6 @@
-# gamehax.h
+# gamehax
 
-### gamehax.h is a one file, easy to import library / function pack for C++ that allows game hackers to mess with memory and stuff alot easier.
+### gamehax is a one file, easy to import library / function pack for C++ that allows game hackers to mess with memory and stuff alot easier.
 
 ### This is especially good for beginners who don't know how to use WriteProcessMemory or ReadProcessMemory. (this functions pack adds a readMem (1 arg) function and a writeMem (2 args) function.)
 
