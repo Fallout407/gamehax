@@ -6,6 +6,8 @@
 
 ### It also contains ease-of-access like functions like 'print' and 'wait' that are purely there to make things easier for beginners.
 
+# FOR READMEM AND WRITEMEM, YOU MUST WRITE 'handle' (no quotes) FOR handleName!
+
 ## Current functions list:
 
 ### print("Text here")
@@ -14,6 +16,6 @@
 
 ### hookToProcess("Window name") -- This function also selects what program to memory edit.
 
-### writeMem(address, value)
+### writeMem(address, value, handleName)
 
-### readMem(address) -- Outputs reading to a variable called 'readOutput'.
+### readMem(address, handleName) -- Outputs reading to a variable called 'readOutput'.
