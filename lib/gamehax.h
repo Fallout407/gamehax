@@ -6,57 +6,57 @@
 #include <string>
 
 // This is the ease set of functions that don't really have anything to do with game hacks, but do help alot.
-
-// Print function (outputs text to the console, simpler version of std::cout)
-
-void print(std::string text)
+class functions
 {
-	std::cout << text << std::endl;
-}
+	// Print function (outputs text to the console, simpler version of std::cout)
 
-// wait function (better Sleep function [from Windows.h], counts in seconds instead of milliseconds)
-
-void wait(int seconds)
-{
-	int time = seconds * 1000;
-	Sleep(time);
-}
-
-// This is the hacking set of functions. Most functions here can only be used after using the hookToProcess function.
-
-// hookToProcess function (hooks the program to a process, allowing you to hack. Creates handle with the name 'handle')
-
-void hookToProcess(LPCSTR windowName)
-{
-	HWND hwnd = FindWindowA(NULL, windowName);
-	if (hwnd == NULL)
+	void print(std::string text)
 	{
-		std::cout << "Hook failed. (could not find specified window)" << std::endl;
+		std::cout << text << std::endl;
 	}
-	else
+
+	// wait function (better Sleep function [from Windows.h], counts in seconds instead of milliseconds)
+
+	void wait(int seconds)
 	{
-		DWORD procID;
-		GetWindowThreadProcessId(hwnd, &procID);
-		HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
-		if (procID == NULL)
+		int time = seconds * 1000;
+		Sleep(time);
+	}
+
+	// This is the hacking set of functions. Most functions here can only be used after using the hookToProcess function.
+
+	// hookToProcess function (hooks the program to a process, allowing you to hack. Creates handle with the name 'handle')
+
+	void hookToProcess(LPCSTR windowName)
+	{
+		HWND hwnd = FindWindowA(NULL, windowName);
+		if (hwnd == NULL)
 		{
-			std::cout << "Hook failed. (could not obtain process ID)" << endl;
+			std::cout << "Hook failed. (could not find specified window)" << std::endl;
+		}
+		else
+		{
+			DWORD procID;
+			GetWindowThreadProcessId(hwnd, &procID);
+			HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
+			if (procID == NULL)
+			{
+				std::cout << "Hook failed. (could not obtain process ID)" << std::endl;
+			}
 		}
 	}
-}
 
-// writeMem function (makes it much easier to write to memory)
+	// writeMem function (makes it much easier to write to memory)
 
-void writeMem(DWORD address, int value)
-{
-	WriteProcessMemory(handle, (LPVOID)address, &value, sizeof(value), 0);
-}
+	void writeMem(DWORD address, int value, std::string handleName)
+	{
+		WriteProcessMemory(&handleName, (LPVOID)address, &value, sizeof(value), 0);
+	}
 
-// readMem function (makes it much easier to read memory)
+	// readMem function (makes it much easier to read memory)
 
-void readMem(DWORD address)
-{
-	// This function will output the reading to the variable "readOutput".
-	int readOutput = 0;
-	ReadProcessMemory(handle, (PBYTE*)address, &readOutput, sizeof(readOutput), 0);
+	void readMem(DWORD address, std::string handleName)
+	{
+		ReadProcessMemory(&handleName, (PBYTE*)address, 0, sizeof(0), 0);
+	};
 };
