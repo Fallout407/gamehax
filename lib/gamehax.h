@@ -19,8 +19,7 @@ class functions
 
 	void wait(int seconds)
 	{
-		int time = seconds * 1000;
-		Sleep(time);
+		Sleep(seconds * 1000);
 	}
 
 	// This is the hacking set of functions. Most functions here can only be used after using the hookToProcess function.
