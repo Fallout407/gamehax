@@ -57,8 +57,10 @@ class functions
 
 	// readMem function (makes it much easier to read memory)
 
-	void readMem(DWORD address, std::string handleName)
+	int readIntMem(DWORD address, std::string handleName)
 	{
-		ReadProcessMemory(&handleName, (PBYTE*)address, 0, sizeof(0), 0);
+		int read;
+		ReadProcessMemory(&handleName, (PBYTE*)address, &read, sizeof(0), 0);
+		return read;
 	};
 };
