@@ -37,11 +37,11 @@ class functions
 		{
 			DWORD procID;
 			GetWindowThreadProcessId(hwnd, &procID);
-			HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
 			if (procID == NULL)
 			{
 				std::cout << "Hook failed. (could not obtain process ID)" << std::endl;
 			}
+			HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
 		}
 	}
 
