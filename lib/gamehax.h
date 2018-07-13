@@ -26,12 +26,13 @@ class functions
 
 	// hookToProcess function (hooks the program to a process, allowing you to hack. Creates handle with the name 'handle')
 
-	void hookToProcess(LPCSTR windowName)
+	bool hookToProcess(LPCSTR windowName)
 	{
 		HWND hwnd = FindWindowA(NULL, windowName);
 		if (hwnd == NULL)
 		{
 			std::cout << "Hook failed. (could not find specified window)" << std::endl;
+			return false;
 		}
 		else
 		{
@@ -40,8 +41,10 @@ class functions
 			if (procID == NULL)
 			{
 				std::cout << "Hook failed. (could not obtain process ID)" << std::endl;
+				return false;
 			}
 			HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
+			return true;
 		}
 	}
 
